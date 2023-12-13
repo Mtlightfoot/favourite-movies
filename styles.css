@@ -1,14 +1,30 @@
 .card-footer {
-    padding: 0;
-    height: 40px;
+  padding: 0;
+  height: 40px;
 }
 
 .rating {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .rating:hover,
 .rating:active {
   letter-spacing: 5px;
   transition: all 280ms ease-in-out;
+}
+
+.bigPoster {
+  height: 600px;
+  width: 402px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.smallPoster {
+  height: 200px;
+  width: 134px;
+  background-size: cover;
 }

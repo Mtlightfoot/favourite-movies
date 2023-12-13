@@ -50,7 +50,6 @@ function chooseMovie(movie) {
 
       return response.json();
     }).then(function (data) {
-      console.log(data.Title);
       if (data.Title === undefined) {
         return alert("Movie not found, please check your spelling!")
       } else if (data.Title === "Null") {
@@ -83,6 +82,7 @@ function chooseMovie(movie) {
       poster.css('text-align', 'center');
       const img = $('<img id="posterImg">');
       img.attr('src', data.Poster);
+      img.attr('alt', `A poster for the movie ${data.Title}`);
       img.css('height', '200px');
       poster.append(img);
 
@@ -168,3 +168,22 @@ clearBtn.on('click', () => {
 
   setTimeout(emptyMessage, 3000);
 });
+
+let z = 0;
+
+$('.smallPoster').each(function () {
+  const posters = arrayOfMovies[z].poster;
+  z++
+  $(this).css({ 'background-image': `url(${posters})` });
+})
+
+const createPosterBtn = $('.createPoster');
+const bigPoster = $('.bigPoster');
+createPosterBtn.on('click', function () {
+  if (arrayOfMovies.length === 9) {
+    bigPoster.removeAttr('hidden');
+  } else {
+    alert("You must have exactly 9 movies in your list")
+    bigPoster.attr('hidden', 'hidden');
+  }
+})
