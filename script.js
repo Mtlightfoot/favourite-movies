@@ -4,7 +4,6 @@ if (arrayOfMovies === null) {
   arrayOfMovies = [];
 } else {
   for (i = 0; i < arrayOfMovies.length; i++) {
-    console.log(arrayOfMovies[i].title)
 
     const tableRow = $('<tr>');
 
@@ -51,7 +50,10 @@ function chooseMovie(movie) {
 
       return response.json();
     }).then(function (data) {
-      console.log(data);
+      console.log(data.Title);
+      if (data.Title === undefined) {
+        return alert("Movie not found, please check your spelling!")
+      }
 
       // Create and save a reference to new empty table row
       const tableRow = $('<tr>');
@@ -118,10 +120,9 @@ function chooseMovie(movie) {
 
       arrayOfMovies.push(movieForArray);
 
-      console.log(arrayOfMovies);
-
     })
-    .catch(function (response) {
+    .catch(error => {
+      console.log(error)
     });
 };
 
