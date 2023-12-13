@@ -27,12 +27,18 @@ if (arrayOfMovies === null) {
     img.css('height', '200px');
     poster.append(img);
 
-    tableRow.append(title, year, actors, plot, poster);
+    const rating = $('<td id="rating">');
+    rating.attr('width', '15%');
+    const ratingButton = $('<button>');
+    ratingButton.addClass('rating btn btn-warning');
+    ratingButton.text(arrayOfMovies[i].rating);
+    rating.append(ratingButton);
+
+    tableRow.append(title, year, actors, plot, poster, rating);
 
     const tbody = $('.table tbody');
     tbody.append(tableRow);
   }
-
 }
 
 function chooseMovie(movie) {
@@ -49,29 +55,48 @@ function chooseMovie(movie) {
 
       // Create and save a reference to new empty table row
       const tableRow = $('<tr>');
+      tableRow.attr('scope', 'row');
 
       // Create and save references to 3 td elements containing the Title, Year, and Actors from the Fetch response object
       const title = $('<td>');
+      title.attr('width', "10%");
       title.text(data.Title);
 
       const year = $('<td>');
+      year.attr('width', "5%");
       year.text(data.Year);
 
       const actors = $('<td>');
+      actors.attr('width', "20%");
       actors.text(data.Actors);
 
       const plot = $('<td>');
+      plot.attr('width', "35%");
       plot.text(data.Plot);
 
       const poster = $('<td id="posters">');
+      poster.attr('width', '15%');
       poster.css('text-align', 'center');
       const img = $('<img id="posterImg">');
       img.attr('src', data.Poster);
       img.css('height', '200px');
       poster.append(img);
 
+      const rating = $('<td id="rating">');
+      rating.attr('width', '15%');
+      const ratingButton = $('<button>');
+      ratingButton.addClass('rating btn btn-warning');
+      ratingButton.text("Rate");
+      rating.append(ratingButton);
+
+      ratingButton.on('click', () => {
+        const userRating = prompt("Out of 10, what would you rate this film?");
+        ratingButton.text(userRating);
+        movieForArray.rating = userRating;
+      });
+
       // Append the td elements to the new table row
-      tableRow.append(title, year, actors, plot, poster);
+      tableRow.append(title, year, actors, plot, poster, rating);
 
       // Append the table row to the tbody element
       const tbody = $('.table tbody');
@@ -133,6 +158,4 @@ clearBtn.on('click', () => {
   }
 
   setTimeout(emptyMessage, 3000);
-})
-
-
+});
