@@ -90,7 +90,13 @@ function chooseMovie(movie) {
       rating.append(ratingButton);
 
       ratingButton.on('click', () => {
-        const userRating = prompt("Out of 10, what would you rate this film?");
+        let userRating = prompt("Out of 10, what would you rate this film?");
+        if (userRating < 0 || userRating > 10) {
+          do {
+            userRating = prompt("Please enter a rating between 0 - 10");
+          }
+          while (userRating < 0 || userRating > 10);
+        }
         ratingButton.text(userRating);
         movieForArray.rating = userRating;
       });
