@@ -32,7 +32,6 @@ function chooseMovie(movie) {
       img.attr('src', data.Poster);
       img.css('height', '200px');
       poster.append(img);
-      console.log(data.Poster);
 
       // Append the td elements to the new table row
       tableRow.append(title, year, actors, plot, poster);
@@ -42,9 +41,7 @@ function chooseMovie(movie) {
       tbody.append(tableRow);
 
     })
-    .catch(function (error) {
-      // this block will run when promise operation failed and return an error
-      console.log(error);
+    .catch(function (response) {
     });
 };
 
@@ -53,6 +50,19 @@ const addFilm = $('.add');
 addFilm.on('click', () => {
   chooseMovie(prompt("Add a film"));
 });
+
+const saveBtn = $('.saveBtn');
+const saveMessage = $(".saveMessage");
+
+saveBtn.on('click', () => {
+  saveMessage.text("Your movie list has been saved!");
+
+  function emptyMessage() {
+    saveMessage.text("");
+  }
+
+  setTimeout(emptyMessage, 3000);
+})
 
 
 
