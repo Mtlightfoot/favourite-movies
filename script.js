@@ -1,39 +1,38 @@
-let arrayOfMovies;
+let arrayOfMovies = JSON.parse(localStorage.getItem("local-storage-data"));
 
-if (arrayOfMovies === undefined) {
+if (arrayOfMovies === null) {
   arrayOfMovies = [];
-}
+} else {
+  for (i = 0; i < arrayOfMovies.length; i++) {
+    console.log(arrayOfMovies[i].title)
 
-arrayOfMovies = JSON.parse(localStorage.getItem("local-storage-data"));
+    const tableRow = $('<tr>');
 
-for (i = 0; i < arrayOfMovies.length; i++) {
-  console.log(arrayOfMovies[i].title)
+    const title = $('<td>');
+    title.text(arrayOfMovies[i].title);
 
-  const tableRow = $('<tr>');
+    const year = $('<td>');
+    year.text(arrayOfMovies[i].year);
 
-  const title = $('<td>');
-  title.text(arrayOfMovies[i].title);
+    const actors = $('<td>');
+    actors.text(arrayOfMovies[i].actors);
 
-  const year = $('<td>');
-  year.text(arrayOfMovies[i].year);
+    const plot = $('<td>');
+    plot.text(arrayOfMovies[i].plot);
 
-  const actors = $('<td>');
-  actors.text(arrayOfMovies[i].actors);
+    const poster = $('<td id="posters">');
+    poster.css('text-align', 'center');
+    const img = $('<img id="posterImg">');
+    img.attr('src', arrayOfMovies[i].poster);
+    img.css('height', '200px');
+    poster.append(img);
 
-  const plot = $('<td>');
-  plot.text(arrayOfMovies[i].plot);
+    tableRow.append(title, year, actors, plot, poster);
 
-  const poster = $('<td id="posters">');
-  poster.css('text-align', 'center');
-  const img = $('<img id="posterImg">');
-  img.attr('src', arrayOfMovies[i].poster);
-  img.css('height', '200px');
-  poster.append(img);
+    const tbody = $('.table tbody');
+    tbody.append(tableRow);
+  }
 
-  tableRow.append(title, year, actors, plot, poster);
-
-  const tbody = $('.table tbody');
-  tbody.append(tableRow);
 }
 
 function chooseMovie(movie) {
@@ -95,12 +94,14 @@ function chooseMovie(movie) {
     });
 };
 
+// add film button function
 const addFilm = $('.add');
 
 addFilm.on('click', () => {
   chooseMovie(prompt("Add a film"));
 });
 
+// save list button function
 const saveBtn = $('.saveBtn');
 const saveMessage = $(".saveMessage");
 
@@ -116,5 +117,22 @@ saveBtn.on('click', () => {
   setTimeout(emptyMessage, 3000);
 })
 
+// clear list button function
+const clearBtn = $('.clearBtn');
+const tBody = $('.tableBody');
+
+clearBtn.on('click', () => {
+  saveMessage.text("Your movie list has been cleared!");
+
+  localStorage.clear();
+
+  tBody.html("");
+
+  function emptyMessage() {
+    saveMessage.text("");
+  }
+
+  setTimeout(emptyMessage, 3000);
+})
 
 
