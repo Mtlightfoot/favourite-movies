@@ -53,6 +53,8 @@ function chooseMovie(movie) {
       console.log(data.Title);
       if (data.Title === undefined) {
         return alert("Movie not found, please check your spelling!")
+      } else if (data.Title === Null) {
+        return
       }
 
       // Create and save a reference to new empty table row
