@@ -10,23 +10,34 @@
 
 <body>
   <div class="container">
-    <h2>Basic Table</h2>
-    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
-    <table class="table">
-      <thead>
-        <tr>
-          <!-- The scope attribute specifies that this is a header for a column -->
-          <th scope="col">Movie Name</th>
-          <th scope="col">Year</th>
-          <th scope="col">Actors</th>
-          <th scope="col">Plot</th>
-          <th scope="col">Poster</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-    <button class="add">Add a film</button>
+    <div class="card text-center">
+      <div class="card-body">
+        <h2 class="card-title">Movie List</h5>
+          <p class="card-text">Click the "Add a Movie" button below to start adding your favourite movie!</p>
+          <button type="button" class="add btn btn-primary">Add a Movie</button>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Movie Name</th>
+                <th scope="col">Year</th>
+                <th scope="col">Actors</th>
+                <th scope="col">Plot</th>
+                <th scope="col">Poster</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+      </div>
+      <div class="card-footer text-muted">
+      </div>
+    </div>
+
+
+
+
+
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="./script.js">
