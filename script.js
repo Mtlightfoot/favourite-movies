@@ -171,15 +171,22 @@ clearBtn.on('click', () => {
 
 let z = 0;
 
-$('.smallPoster').each(function () {
-  const posters = arrayOfMovies[z].poster;
-  z++
-  $(this).css({ 'background-image': `url(${posters})` });
-})
+// $('.smallPoster').each(function () {
+//   const posters = arrayOfMovies[z].poster;
+//   z++
+//   $(this).css({ 'background-image': `url(${posters})` });
+// })
 
 const createPosterBtn = $('.createPoster');
 const bigPoster = $('.bigPoster');
 createPosterBtn.on('click', function () {
+
+  $('.smallPoster').each(function () {
+    const posters = arrayOfMovies[z].poster;
+    z++
+    $(this).css({ 'background-image': `url(${posters})` });
+  })
+
   if (arrayOfMovies.length === 9) {
     bigPoster.removeAttr('hidden');
   } else {
