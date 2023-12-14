@@ -180,6 +180,12 @@ let z = 0;
 const createPosterBtn = $('.createPoster');
 const bigPoster = $('.bigPoster');
 createPosterBtn.on('click', function () {
+  if (arrayOfMovies.length === 9) {
+    bigPoster.removeAttr('hidden');
+  } else {
+    alert("You must have exactly 9 movies in your list")
+    bigPoster.attr('hidden', 'hidden');
+  }
 
   $('.smallPoster').each(function () {
     const posters = arrayOfMovies[z].poster;
@@ -187,10 +193,5 @@ createPosterBtn.on('click', function () {
     $(this).css({ 'background-image': `url(${posters})` });
   })
 
-  if (arrayOfMovies.length === 9) {
-    bigPoster.removeAttr('hidden');
-  } else {
-    alert("You must have exactly 9 movies in your list")
-    bigPoster.attr('hidden', 'hidden');
-  }
+
 })
