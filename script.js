@@ -189,9 +189,7 @@ createPosterBtn.on('click', function () {
 
   $('.smallPoster').each(function () {
     const posters = arrayOfMovies[z].poster;
-    z++
     $(this).css({ 'background-image': `url(${posters})` });
+    z++;
   })
-
-
 })
