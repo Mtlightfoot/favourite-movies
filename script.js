@@ -29,14 +29,38 @@ if (arrayOfMovies === null) {
     const rating = $('<td id="rating">');
     rating.attr('width', '15%');
     const ratingButton = $('<button>');
-    ratingButton.addClass('rating btn btn-warning');
-    ratingButton.text(arrayOfMovies[i].rating);
+    ratingButton.addClass('rating btn btn-warning col-12');
+    console.log(ratingButton.textContent)
+    if (ratingButton.textContent === undefined) {
+      ratingButton.text("Rate");
+    } else {
+      ratingButton.text(arrayOfMovies[i].rating);
+    }
+
     rating.append(ratingButton);
+
+    const removeMovie = $('<button>');
+    removeMovie.addClass('removeMovie btn btn-danger col-12');
+    removeMovie.text('Remove');
+    rating.append(removeMovie);
+
+    ratingButton.on('click', () => {
+      let userRating = prompt("Out of 10, what would you rate this film?");
+      if (userRating < 0 || userRating > 10) {
+        do {
+          userRating = prompt("Please enter a rating between 0 - 10");
+        }
+        while (userRating < 0 || userRating > 10);
+      }
+      ratingButton.text(userRating);
+      movieForArray.rating = userRating;
+    });
 
     tableRow.append(title, year, actors, plot, poster, rating);
 
     const tbody = $('.table tbody');
     tbody.append(tableRow);
+
   }
 }
 
