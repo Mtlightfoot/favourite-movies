@@ -30,7 +30,6 @@ if (arrayOfMovies === null) {
     rating.attr('width', '15%');
     const ratingButton = $('<button>');
     ratingButton.addClass('rating btn btn-warning col-12');
-    console.log(ratingButton.textContent)
     if (ratingButton.textContent === undefined) {
       ratingButton.text("Rate");
     } else {
@@ -40,7 +39,7 @@ if (arrayOfMovies === null) {
     rating.append(ratingButton);
 
     const removeMovie = $('<button>');
-    removeMovie.addClass('removeMovie btn btn-danger col-12');
+    removeMovie.addClass('removeMovie btn btn-danger col-12 mt-3');
     removeMovie.text('Remove');
     rating.append(removeMovie);
 
@@ -53,7 +52,8 @@ if (arrayOfMovies === null) {
         while (userRating < 0 || userRating > 10);
       }
       ratingButton.text(userRating);
-      movieForArray.rating = userRating;
+      console.log(userRating)
+      console.log(arrayOfMovies)
     });
 
     tableRow.append(title, year, actors, plot, poster, rating);
