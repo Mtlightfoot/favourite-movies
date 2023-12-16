@@ -211,10 +211,17 @@ createPosterBtn.on('click', function () {
     bigPoster.attr('hidden', 'hidden');
   }
 
+  const allPosters = [];
+
   $('.smallPoster').each(function () {
     const posters = arrayOfMovies[z].poster;
+    allPosters.push(posters);
     $(this).css({ 'background-image': `url(${posters})` });
     z++;
   })
 
+  console.log(allPosters);
+
 });
+
+
