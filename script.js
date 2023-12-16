@@ -134,6 +134,10 @@ function chooseMovie(movie) {
       removeMovie.text('Remove');
       rating.append(removeMovie);
 
+      removeMovie.on('click', () => {
+        tableRow.remove();
+      })
+
       // Append the td elements to the new table row
       tableRow.append(title, year, actors, plot, poster, rating);
 
@@ -190,6 +194,8 @@ clearBtn.on('click', () => {
   localStorage.clear();
 
   tBody.html("");
+
+  arrayOfMovies = [];
 
   function emptyMessage() {
     saveMessage.text("");
