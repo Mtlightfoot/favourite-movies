@@ -216,4 +216,5 @@ createPosterBtn.on('click', function () {
     $(this).css({ 'background-image': `url(${posters})` });
     z++;
   })
-})
+
+});
