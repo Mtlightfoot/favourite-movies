@@ -103,6 +103,7 @@ addFilm.on('click', () => {
     addMovieModal.modal("show");
   } else {
     chooseMovie(movieInput.val());
+    movieInput.val("");
   }
 });
 
