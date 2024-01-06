@@ -2,6 +2,7 @@ let arrayOfMovies = JSON.parse(localStorage.getItem("local-storage-data"));
 const bigPoster = $('.bigPoster');
 const movieList = $('.movieList');
 const closeModalBtn = $('.closeModalBtn');
+const movieNotFoundModal = $('#movieNotFoundModal');
 
 if (arrayOfMovies === null) {
   arrayOfMovies = [];
@@ -45,7 +46,7 @@ function chooseMovie(movie) {
       return response.json();
     }).then(function (data) {
       if (data.Title === undefined) {
-        return alert("Movie not found, please check your spelling!")
+        return movieNotFoundModal.modal("show");
       } else if (data.Title === "Null") {
         return
       }
@@ -105,7 +106,7 @@ addFilm.on('click', () => {
   }
 });
 
-closeModalBtn.on("click", function() {
+closeModalBtn.on("click", function () {
   $('.modal').modal("hide");
 })
 

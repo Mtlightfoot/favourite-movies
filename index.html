@@ -18,7 +18,7 @@
 
         <!-- Title -->
         <h2 class="card-title">Film Poster Fusion</h2>
-
+        <p>Add nine of your favourite films to fuse them together for the ultimate movie poster!</p>
         <!-- Search Bar -->
         <div class="container mb-4 mt-3">
           <div class="row height d-flex justify-content-center">
@@ -77,13 +77,36 @@
           </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Film not found Modal -->
+        <div class="modal fade" id="movieNotFoundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Uh Oh!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Movie not found, please check your spelling!</div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary goldBtn closeModalBtn"
+                  data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Too many films Modal -->
         <div class="modal fade" id="addMovieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Uh Oh</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Uh Oh!</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -92,7 +115,8 @@
                 You may only add up to nine films in order to create your Movie Poster!
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary goldBtn closeModalBtn" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary goldBtn closeModalBtn"
+                  data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
