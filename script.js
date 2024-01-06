@@ -7,36 +7,29 @@ if (arrayOfMovies === null) {
 } else {
   for (i = 0; i < arrayOfMovies.length; i++) {
 
-    const tableRow = $('<tr>');
+    const listItem = $('<li class="list-group-item d-flex justify-content-between align-items-start">');
+    const listDiv = $('<div class="ms-2 col-6">');
+    const listDivItem = $('<div class="fw-bold">');
+    const removeSpan = $('<button class="badge bg-danger rounded-pill">');
+    listDivItem.text(arrayOfMovies[i].title);
+    removeSpan.text("X");
+    listItem.append(listDiv);
+    listDiv.append(listDivItem);
+    listDiv.append(arrayOfMovies[i].year);
+    listItem.append(removeSpan)
 
-    const title = $('<td>');
-    title.text(arrayOfMovies[i].title);
-
-    const year = $('<td>');
-    year.text(arrayOfMovies[i].year);
-
-    const actors = $('<td>');
-    actors.text(arrayOfMovies[i].actors);
-
-    const plot = $('<td>');
-    plot.text(arrayOfMovies[i].plot);
+    movieList.append(listItem);
 
     const smlPoster = $('<div class="smallPoster">');
     smlPoster.css({ 'background-image': `url(${arrayOfMovies[i].poster})` });
     bigPoster.append(smlPoster);
 
-    // const removeMovie = $('<button>');
-    // removeMovie.addClass('removeMovie btn btn-danger col-12 mt-3');
-    // removeMovie.text('Remove');
-    // rating.append(removeMovie);
+    removeSpan.on('click', () => {
+      listItem.remove();
+      smlPoster.remove();
+    })
 
     console.log(arrayOfMovies)
-
-    tableRow.append(title, year, actors, plot, rating);
-
-    const tbody = $('.table tbody');
-    tbody.append(tableRow);
-
   }
 }
 
@@ -141,26 +134,3 @@ clearBtn.on('click', () => {
 
   setTimeout(emptyMessage, 3000);
 });
-
-// Array for saving big poster
-
-// let z = 0;
-
-// createPosterBtn.on('click', function () {
-//   // if (arrayOfMovies.length === 9) {
-//   //   bigPoster.removeAttr('hidden');
-//   // } else {
-//   //   alert("You must have exactly 9 movies in your list")
-//   //   bigPoster.attr('hidden', 'hidden');
-//   // }
-
-//   const allPosters = [];
-
-//   $('.smallPoster').each(function () {
-//     const posters = arrayOfMovies[z].poster;
-//     allPosters.push(posters);
-//     $(this).css({ 'background-image': `url(${posters})` });
-//     z++;
-//   })
-
-// });
