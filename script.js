@@ -27,6 +27,26 @@ if (arrayOfMovies === null) {
     smlPoster.css({ 'background-image': `url(${arrayOfMovies[i].poster})` });
     bigPoster.append(smlPoster);
 
+let title = arrayOfMovies[i].title;
+let year = arrayOfMovies[i].year;
+let plot = arrayOfMovies[i].plot;
+let genre = arrayOfMovies[i].genre;
+let director = arrayOfMovies[i].director;
+let actors = arrayOfMovies[i].actors;
+let runtime = arrayOfMovies[i].runtime;
+let boxOffice = arrayOfMovies[i].boxOffice;
+
+    smlPoster.on('click', () => {
+      $('.modalTitle').text(`${title} - ${year}`);
+      $('.modalPlot').text(plot);
+      $('.modalGenre').text(genre);
+      $('.modalDirector').text(director);
+      $('.modalActors').text(actors);
+      $('.modalRuntime').text(runtime);
+      $('.modalBoxOffice').text(boxOffice);
+      moreMovieDetails.modal("show");
+    })
+
     removeSpan.on('click', () => {
       listItem.remove();
       smlPoster.remove();
@@ -93,6 +113,10 @@ function chooseMovie(movie) {
         year: data.Year,
         actors: data.Actors,
         plot: data.Plot,
+        genre: data.Genre,
+        director: data.Director,
+        runtime: data.Runtime,
+        boxOffice: data.BoxOffice,
         poster: data.Poster
       }
 
