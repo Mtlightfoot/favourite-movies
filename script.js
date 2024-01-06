@@ -164,8 +164,11 @@ function chooseMovie(movie) {
 // add film button function
 const addFilm = $('.add');
 
+// movie input value
+const movieInput = $('.movieInput');
+
 addFilm.on('click', () => {
-  chooseMovie(prompt("Add a film"));
+  chooseMovie(movieInput.val());
 });
 
 // save list button function
