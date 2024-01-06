@@ -97,3 +97,11 @@
 table {
   color: #231F20;
 }
+
+.badge {
+  border: none;
+}
+
+.badge:hover {
+  filter: brightness(80%);
+}

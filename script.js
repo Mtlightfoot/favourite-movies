@@ -25,35 +25,12 @@ if (arrayOfMovies === null) {
     smlPoster.css({ 'background-image': `url(${arrayOfMovies[i].poster})` });
     bigPoster.append(smlPoster);
 
-    const rating = $('<td id="rating">');
-    rating.attr('width', '15%');
-    const ratingButton = $('<button>');
-    ratingButton.addClass('rating btn btn-warning col-12');
-    if (ratingButton.textContent === undefined) {
-      ratingButton.text("Rate");
-    } else {
-      ratingButton.text(arrayOfMovies[i].rating);
-    }
-
-    rating.append(ratingButton);
-
     // const removeMovie = $('<button>');
     // removeMovie.addClass('removeMovie btn btn-danger col-12 mt-3');
     // removeMovie.text('Remove');
     // rating.append(removeMovie);
 
-    ratingButton.on('click', () => {
-      let userRating = prompt("Out of 10, what would you rate this film?");
-      if (userRating < 0 || userRating > 10) {
-        do {
-          userRating = prompt("Please enter a rating between 0 - 10");
-        }
-        while (userRating < 0 || userRating > 10);
-      }
-      ratingButton.text(userRating);
-      console.log(userRating)
-      console.log(arrayOfMovies)
-    });
+    console.log(arrayOfMovies)
 
     tableRow.append(title, year, actors, plot, rating);
 
@@ -83,7 +60,7 @@ function chooseMovie(movie) {
       const listItem = $('<li class="list-group-item d-flex justify-content-between align-items-start">');
       const listDiv = $('<div class="ms-2 col-6">');
       const listDivItem = $('<div class="fw-bold">');
-      const removeSpan = $('<span class="badge bg-danger rounded-pill">');
+      const removeSpan = $('<button class="badge bg-danger rounded-pill">');
       listDivItem.text(data.Title);
       removeSpan.text("X");
       listItem.append(listDiv);
@@ -93,43 +70,15 @@ function chooseMovie(movie) {
 
       movieList.append(listItem);
 
+      // Creation of Movie Poster
       const smlPoster = $('<div class="smallPoster">');
       smlPoster.css({ 'background-image': `url(${data.Poster})` });
       bigPoster.append(smlPoster);
 
-      // const rating = $('<td id="rating">');
-      // const ratingButton = $('<button>');
-      // ratingButton.addClass('rating btn btn-warning col-12');
-      // ratingButton.text("Rate");
-      // rating.append(ratingButton);
-
-      // ratingButton.on('click', () => {
-      //   let userRating = prompt("Out of 10, what would you rate this film?");
-      //   if (userRating < 0 || userRating > 10) {
-      //     do {
-      //       userRating = prompt("Please enter a rating between 0 - 10");
-      //     }
-      //     while (userRating < 0 || userRating > 10);
-      //   }
-      //   ratingButton.text(userRating);
-      //   movieForArray.rating = userRating;
-      // });
-
-      const removeMovie = $('<button>');
-      removeMovie.addClass('removeMovie btn btn-danger col');
-      removeMovie.text('Remove');
-      // rating.append(removeMovie);
-
-      removeMovie.on('click', () => {
-        tableRow.remove();
+      removeSpan.on('click', () => {
+        listItem.remove();
+        smlPoster.remove();
       })
-
-      // Append the td elements to the new table row
-      tableRow.append(title, year, removeMovie);
-
-      // Append the table row to the tbody element
-      const tbody = $('.table tbody');
-      tbody.append(tableRow);
 
       const movieForArray = {
         title: data.Title,
@@ -140,7 +89,7 @@ function chooseMovie(movie) {
       }
 
       arrayOfMovies.push(movieForArray);
-
+      console.log(arrayOfMovies)
     })
     .catch(error => {
       console.log(error)
