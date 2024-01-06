@@ -69,10 +69,10 @@
                   <section class="bigPoster mb-3"></section>
                   <a href="#" class="btn btn-primary">Download Poster</a>
                 </div>
-                <div class="card-footer text-muted my-auto col-12 mb-3"></div>
+                <div class="card-footer text-muted my-auto col-12 mb-3">
+                  <p class="saveMessage">To see more information about a film, click on the poster!</p>
+                </div>
               </div>
-
-
             </div>
           </div>
         </div>
@@ -84,9 +84,6 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Uh Oh!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
               <div class="modal-body">
                 Movie not found, please check your spelling!</div>
@@ -98,8 +95,6 @@
           </div>
         </div>
 
-
-
         <!-- Too many films Modal -->
         <div class="modal fade" id="addMovieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
@@ -107,9 +102,6 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Uh Oh!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
               <div class="modal-body">
                 You may only add up to nine films in order to create your Movie Poster!
@@ -126,16 +118,15 @@
         <div class="modal fade" id="moreMovieDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content movieModalBg">
               <div class="modal-header">
                 <h5 class="modal-title modalTitle" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body modalOpBody">
                 <h6 class="text-start">Plot</h6>
                 <p class="modalPlot text-start"></p>
+                <h6 class="text-start">Genre</h6>
+                <p class="modalGenre text-start"></p>
                 <h6 class="text-start">Director</h6>
                 <p class="modalDirector text-start"></p>
                 <h6 class="text-start">Actors</h6>

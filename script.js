@@ -74,6 +74,7 @@ function chooseMovie(movie) {
       smlPoster.on('click', () => {
         $('.modalTitle').text(`${data.Title} - ${data.Year}`);
         $('.modalPlot').text(data.Plot);
+        $('.modalGenre').text(data.Genre);
         $('.modalDirector').text(data.Director);
         $('.modalActors').text(data.Actors);
         $('.modalRuntime').text(data.Runtime);
