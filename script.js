@@ -98,6 +98,13 @@ const addFilm = $('.add');
 const movieInput = $('.movieInput');
 const addMovieModal = $('#addMovieModal');
 
+// Added function so that pressing enter clicks the add film button
+movieInput.on("keypress", function (event) {
+  if (event.key == 'Enter') {
+    addFilm.click();
+  }
+})
+
 addFilm.on('click', () => {
   if (arrayOfMovies.length === 9) {
     addMovieModal.modal("show");
