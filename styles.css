@@ -52,6 +52,15 @@
   background-color: #8E793E;
 }
 
+.goldBtn {
+  background-color: #AD974F;
+  color: white;
+}
+
+.goldBtn:hover {
+  background-color: #8E793E;
+}
+
 .card-footer {
   background-color: transparent;
   height: 30px;

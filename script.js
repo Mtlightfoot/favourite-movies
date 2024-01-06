@@ -1,6 +1,7 @@
 let arrayOfMovies = JSON.parse(localStorage.getItem("local-storage-data"));
 const bigPoster = $('.bigPoster');
 const movieList = $('.movieList');
+const closeModalBtn = $('.closeModalBtn');
 
 if (arrayOfMovies === null) {
   arrayOfMovies = [];
@@ -94,10 +95,19 @@ const addFilm = $('.add');
 
 // movie input value
 const movieInput = $('.movieInput');
+const addMovieModal = $('#addMovieModal');
 
 addFilm.on('click', () => {
-  chooseMovie(movieInput.val());
+  if (arrayOfMovies.length === 9) {
+    addMovieModal.modal("show");
+  } else {
+    chooseMovie(movieInput.val());
+  }
 });
+
+closeModalBtn.on("click", function() {
+  $('.modal').modal("hide");
+})
 
 // save list button function
 const saveBtn = $('.saveBtn');
