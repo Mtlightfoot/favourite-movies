@@ -69,13 +69,23 @@
 }
 
 .bigPoster {
-  height: 600px;
   width: 402px;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.leftCard {
+  background-image: url(img/liquid-cheese.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.rightCard {
+  background-image: url(img/liquid-cheese.svg);
+  background-size: cover;
+  background-position: center;
 }
 
 .smallPoster {
