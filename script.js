@@ -117,14 +117,15 @@ saveBtn.on('click', () => {
 
 // clear list button function
 const clearBtn = $('.clearBtn');
-const tBody = $('.tableBody');
 
 clearBtn.on('click', () => {
   saveMessage.text("Your movie list has been cleared!");
 
   localStorage.clear();
 
-  tBody.html("");
+  movieList.html("");
+
+  bigPoster.html("");
 
   arrayOfMovies = [];
 
