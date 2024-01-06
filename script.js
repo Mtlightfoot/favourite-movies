@@ -3,6 +3,7 @@ const bigPoster = $('.bigPoster');
 const movieList = $('.movieList');
 const closeModalBtn = $('.closeModalBtn');
 const movieNotFoundModal = $('#movieNotFoundModal');
+const moreMovieDetails = $('#moreMovieDetails');
 
 if (arrayOfMovies === null) {
   arrayOfMovies = [];
@@ -50,7 +51,7 @@ function chooseMovie(movie) {
       } else if (data.Title === "Null") {
         return
       }
-
+      console.log(data)
       // Creation of list item
       const listItem = $('<li class="list-group-item d-flex justify-content-between align-items-start">');
       const listDiv = $('<div class="ms-2 col-6">');
@@ -69,6 +70,17 @@ function chooseMovie(movie) {
       const smlPoster = $('<div class="smallPoster">');
       smlPoster.css({ 'background-image': `url(${data.Poster})` });
       bigPoster.append(smlPoster);
+
+      smlPoster.on('click', () => {
+        $('.modalTitle').text(`${data.Title} - ${data.Year}`);
+        $('.modalPlot').text(data.Plot);
+        $('.modalDirector').text(data.Director);
+        $('.modalActors').text(data.Actors);
+        $('.modalRuntime').text(data.Runtime);
+        $('.modalBoxOffice').text(data.BoxOffice);
+        moreMovieDetails.modal("show");
+        console.log(data.Title)
+      })
 
       removeSpan.on('click', () => {
         listItem.remove();

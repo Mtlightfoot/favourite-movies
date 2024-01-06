@@ -103,6 +103,10 @@
   background-size: cover;
 }
 
+.smallPoster:hover {
+  filter: brightness(130%);
+}
+
 table {
   color: #231F20;
 }
