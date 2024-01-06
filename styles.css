@@ -1,3 +1,50 @@
+* {
+  background-color: #231f20;
+  color: white;
+}
+
+.card-title {
+  color: white;
+}
+
+/* Search bar styles */
+.search {
+  position: relative;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+}
+
+.search input {
+  height: 50px;
+  text-indent: 25px;
+  border: 2px solid #d6d4d4;
+}
+
+
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid #AD974F;
+}
+
+.search .fa-search {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+}
+
+.search button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 40px;
+  width: 110px;
+  color: white;
+  background: #AD974F;
+}
+
+.search button:hover {
+  background-color: #8E793E;
+}
+
 .card-footer {
   padding: 0;
   height: 40px;

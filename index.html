@@ -15,40 +15,54 @@
   <div class="container-fluid">
     <div class="card text-center">
       <div class="card-body">
-        <h2 class="card-title">Favourite Movies</h5>
-          <p class="card-text">Click the "Add a Movie" button below to start adding your favourite movies!</p>
-          <button type="button" class="add btn btn-primary">Add a Movie</button>
+        <h2 class="card-title">Favourite Movies</h2>
+        <div class="container">
 
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" width="10%">Movie Name</th>
-                <th scope="col" width="5%">Year</th>
-                <th scope="col" width="20%">Actors</th>
-                <th scope="col" width="40%">Plot</th>
-                <th scope="col" width="15%">Poster</th>
-                <th scope="col" width="10%">Rating</th>
-              </tr>
-            </thead>
-            <tbody class="tableBody">
-            </tbody>
-          </table>
-          <button type="button" class="saveBtn btn btn-success">Save List</button>
-          <button type="button" class="createPoster btn btn-light">Create Poster</button>
-          <button type="button" class="clearBtn btn btn-danger">Clear List</button>
+          <div class="row height d-flex justify-content-center align-items-center">
 
-          <section class="bigPoster" hidden="hidden">
-            <div class="smallPoster poster1"></div>
-            <div class="smallPoster poster2"></div>
-            <div class="smallPoster poster3"></div>
-            <div class="smallPoster poster4"></div>
-            <div class="smallPoster poster5"></div>
-            <div class="smallPoster poster6"></div>
-            <div class="smallPoster poster7"></div>
-            <div class="smallPoster poster8"></div>
-            <div class="smallPoster poster9"></div>
-          </section>
-          <button id="dl-png">Download as PNG</button>
+            <div class="col-md-4">
+
+              <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control" placeholder="Search for your favourite movies!">
+                <button class="add btn">Add movie</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" width="10%">Movie Name</th>
+              <th scope="col" width="5%">Year</th>
+              <th scope="col" width="20%">Actors</th>
+              <th scope="col" width="40%">Plot</th>
+              <th scope="col" width="15%">Poster</th>
+              <th scope="col" width="10%">Rating</th>
+            </tr>
+          </thead>
+          <tbody class="tableBody">
+          </tbody>
+        </table>
+        <button type="button" class="saveBtn btn btn-success">Save List</button>
+        <button type="button" class="createPoster btn btn-light">Create Poster</button>
+        <button type="button" class="clearBtn btn btn-danger">Clear List</button>
+
+        <section class="bigPoster" hidden="hidden">
+          <div class="smallPoster poster1"></div>
+          <div class="smallPoster poster2"></div>
+          <div class="smallPoster poster3"></div>
+          <div class="smallPoster poster4"></div>
+          <div class="smallPoster poster5"></div>
+          <div class="smallPoster poster6"></div>
+          <div class="smallPoster poster7"></div>
+          <div class="smallPoster poster8"></div>
+          <div class="smallPoster poster9"></div>
+        </section>
+        <button id="dl-png">Download as PNG</button>
 
 
       </div>
