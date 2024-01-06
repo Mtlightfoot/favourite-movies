@@ -1,4 +1,6 @@
 let arrayOfMovies = JSON.parse(localStorage.getItem("local-storage-data"));
+const bigPoster = $('.bigPoster');
+const movieList = $('.movieList');
 
 if (arrayOfMovies === null) {
   arrayOfMovies = [];
@@ -19,12 +21,9 @@ if (arrayOfMovies === null) {
     const plot = $('<td>');
     plot.text(arrayOfMovies[i].plot);
 
-    const poster = $('<td id="posters">');
-    poster.css('text-align', 'center');
-    const img = $('<img id="posterImg">');
-    img.attr('src', arrayOfMovies[i].poster);
-    img.css('height', '200px');
-    poster.append(img);
+    const smlPoster = $('<div class="smallPoster">');
+    smlPoster.css({ 'background-image': `url(${arrayOfMovies[i].poster})` });
+    bigPoster.append(smlPoster);
 
     const rating = $('<td id="rating">');
     rating.attr('width', '15%');
@@ -56,7 +55,7 @@ if (arrayOfMovies === null) {
       console.log(arrayOfMovies)
     });
 
-    tableRow.append(title, year, actors, plot, poster, rating);
+    tableRow.append(title, year, actors, plot, rating);
 
     const tbody = $('.table tbody');
     tbody.append(tableRow);
@@ -80,66 +79,53 @@ function chooseMovie(movie) {
         return
       }
 
-      // Create and save a reference to new empty table row
-      const tableRow = $('<tr>');
-      tableRow.attr('scope', 'row');
+      // Creation of list item
+      const listItem = $('<li class="list-group-item d-flex justify-content-between align-items-start">');
+      const listDiv = $('<div class="ms-2 col-6">');
+      const listDivItem = $('<div class="fw-bold">');
+      const removeSpan = $('<span class="badge bg-danger rounded-pill">');
+      listDivItem.text(data.Title);
+      removeSpan.text("X");
+      listItem.append(listDiv);
+      listDiv.append(listDivItem);
+      listDiv.append(data.Year);
+      listItem.append(removeSpan)
 
-      // Create and save references to 3 td elements containing the Title, Year, and Actors from the Fetch response object
-      const title = $('<td>');
-      title.attr('width', "10%");
-      title.text(data.Title);
+      movieList.append(listItem);
 
-      const year = $('<td>');
-      year.attr('width', "5%");
-      year.text(data.Year);
+      const smlPoster = $('<div class="smallPoster">');
+      smlPoster.css({ 'background-image': `url(${data.Poster})` });
+      bigPoster.append(smlPoster);
 
-      const actors = $('<td>');
-      actors.attr('width', "20%");
-      actors.text(data.Actors);
+      // const rating = $('<td id="rating">');
+      // const ratingButton = $('<button>');
+      // ratingButton.addClass('rating btn btn-warning col-12');
+      // ratingButton.text("Rate");
+      // rating.append(ratingButton);
 
-      const plot = $('<td>');
-      plot.attr('width', "35%");
-      plot.text(data.Plot);
-
-      const poster = $('<td id="posters">');
-      poster.attr('width', '15%');
-      poster.css('text-align', 'center');
-      const img = $('<img id="posterImg">');
-      img.attr('src', data.Poster);
-      img.attr('alt', `A poster for the movie ${data.Title}`);
-      img.css('height', '200px');
-      poster.append(img);
-
-      const rating = $('<td id="rating">');
-      rating.attr('width', '15%');
-      const ratingButton = $('<button>');
-      ratingButton.addClass('rating btn btn-warning col-12');
-      ratingButton.text("Rate");
-      rating.append(ratingButton);
-
-      ratingButton.on('click', () => {
-        let userRating = prompt("Out of 10, what would you rate this film?");
-        if (userRating < 0 || userRating > 10) {
-          do {
-            userRating = prompt("Please enter a rating between 0 - 10");
-          }
-          while (userRating < 0 || userRating > 10);
-        }
-        ratingButton.text(userRating);
-        movieForArray.rating = userRating;
-      });
+      // ratingButton.on('click', () => {
+      //   let userRating = prompt("Out of 10, what would you rate this film?");
+      //   if (userRating < 0 || userRating > 10) {
+      //     do {
+      //       userRating = prompt("Please enter a rating between 0 - 10");
+      //     }
+      //     while (userRating < 0 || userRating > 10);
+      //   }
+      //   ratingButton.text(userRating);
+      //   movieForArray.rating = userRating;
+      // });
 
       const removeMovie = $('<button>');
-      removeMovie.addClass('removeMovie btn btn-danger col-12 mt-3');
+      removeMovie.addClass('removeMovie btn btn-danger col');
       removeMovie.text('Remove');
-      rating.append(removeMovie);
+      // rating.append(removeMovie);
 
       removeMovie.on('click', () => {
         tableRow.remove();
       })
 
       // Append the td elements to the new table row
-      tableRow.append(title, year, actors, plot, poster, rating);
+      tableRow.append(title, year, removeMovie);
 
       // Append the table row to the tbody element
       const tbody = $('.table tbody');
@@ -207,35 +193,25 @@ clearBtn.on('click', () => {
   setTimeout(emptyMessage, 3000);
 });
 
-let z = 0;
+// Array for saving big poster
 
-// $('.smallPoster').each(function () {
-//   const posters = arrayOfMovies[z].poster;
-//   z++
-//   $(this).css({ 'background-image': `url(${posters})` });
-// })
+// let z = 0;
 
-const createPosterBtn = $('.createPoster');
-const bigPoster = $('.bigPoster');
-createPosterBtn.on('click', function () {
-  if (arrayOfMovies.length === 9) {
-    bigPoster.removeAttr('hidden');
-  } else {
-    alert("You must have exactly 9 movies in your list")
-    bigPoster.attr('hidden', 'hidden');
-  }
+// createPosterBtn.on('click', function () {
+//   // if (arrayOfMovies.length === 9) {
+//   //   bigPoster.removeAttr('hidden');
+//   // } else {
+//   //   alert("You must have exactly 9 movies in your list")
+//   //   bigPoster.attr('hidden', 'hidden');
+//   // }
 
-  const allPosters = [];
+//   const allPosters = [];
 
-  $('.smallPoster').each(function () {
-    const posters = arrayOfMovies[z].poster;
-    allPosters.push(posters);
-    $(this).css({ 'background-image': `url(${posters})` });
-    z++;
-  })
+//   $('.smallPoster').each(function () {
+//     const posters = arrayOfMovies[z].poster;
+//     allPosters.push(posters);
+//     $(this).css({ 'background-image': `url(${posters})` });
+//     z++;
+//   })
 
-  console.log(allPosters);
-
-});
-
-
+// });

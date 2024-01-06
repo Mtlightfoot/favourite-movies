@@ -12,14 +12,16 @@
 
 <body>
 
-  <div class="container-fluid">
-    <div class="card text-center">
+  <div class="container-fluid pageContainer">
+    <div class="card mainCard text-center">
       <div class="card-body">
+
+        <!-- Title -->
         <h2 class="card-title">Favourite Movies</h2>
-        <div class="container">
 
-          <div class="row height d-flex justify-content-center align-items-center">
-
+        <!-- Search Bar -->
+        <div class="container mb-3 mt-2">
+          <div class="row height d-flex justify-content-center">
             <div class="col-md-6">
               <div class="search">
                 <i class="fa fa-search"></i>
@@ -27,48 +29,69 @@
                 <button class="add btn">Add movie</button>
               </div>
             </div>
-
           </div>
         </div>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" width="10%">Movie Name</th>
-              <th scope="col" width="5%">Year</th>
-              <th scope="col" width="20%">Actors</th>
-              <th scope="col" width="40%">Plot</th>
-              <th scope="col" width="15%">Poster</th>
-              <th scope="col" width="10%">Rating</th>
-            </tr>
-          </thead>
-          <tbody class="tableBody">
-          </tbody>
-        </table>
-        <button type="button" class="saveBtn btn btn-success">Save List</button>
-        <button type="button" class="createPoster btn btn-light">Create Poster</button>
-        <button type="button" class="clearBtn btn btn-danger">Clear List</button>
 
-        <section class="bigPoster" hidden="hidden">
-          <div class="smallPoster poster1"></div>
-          <div class="smallPoster poster2"></div>
-          <div class="smallPoster poster3"></div>
-          <div class="smallPoster poster4"></div>
-          <div class="smallPoster poster5"></div>
-          <div class="smallPoster poster6"></div>
-          <div class="smallPoster poster7"></div>
-          <div class="smallPoster poster8"></div>
-          <div class="smallPoster poster9"></div>
-        </section>
-        <button id="dl-png">Download as PNG</button>
+        <!-- Container for main page -->
+        <div class="container text-center">
+          <div class="row align-items-start">
+
+            <!-- Left Column -->
+            <div class="col-6 leftColumn">
+
+              <div class="card">
+                <div class="card-header">
+                  Movie List
+                </div>
+                <div class="card-body">
+
+                  <ol class="list-group list-group-numbered movieList">
+                  </ol>
+
+                  <button type="button" class="saveBtn btn btn-success mb-3">Save List</button>
+                  <button type="button" class="clearBtn btn btn-danger mb-3">Clear List</button>
+                  <!-- Update message -->
+                  <div class="card-footer text-muted my-auto">
+                    <p class="saveMessage"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-6 rightColumn">
+
+              <div class="card">
+                <div class="card-header">
+                  Movie Poster
+                </div>
+
+                <div class="card-body">
+                  <section class="bigPoster">
+                    <!-- <div class="smallPoster poster1"></div>
+                    <div class="smallPoster poster2"></div>
+                    <div class="smallPoster poster3"></div>
+                    <div class="smallPoster poster4"></div>
+                    <div class="smallPoster poster5"></div>
+                    <div class="smallPoster poster6"></div>
+                    <div class="smallPoster poster7"></div>
+                    <div class="smallPoster poster8"></div>
+                    <div class="smallPoster poster9"></div> -->
+                  </section>
+                  <a href="#" class="btn btn-primary">Download Poster</a>
+                </div>
+              </div>
 
 
-      </div>
-      <div class="card-footer text-muted d-flex">
-        <p class="saveMessage m-auto"></p>
+            </div>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
-
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="./script.js"></script>

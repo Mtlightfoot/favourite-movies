@@ -1,10 +1,18 @@
-* {
-  background-color: #231f20;
-  color: white;
+.pageContainer {
+  background-color: white;
 }
 
 .card-title {
+  color: #231F20;
+}
+
+.card-header {
+  background-color: #AD974F;
   color: white;
+}
+
+.mainCard {
+  background-color: transparent;
 }
 
 /* Search bar styles */
@@ -18,7 +26,6 @@
   text-indent: 25px;
   border: 2px solid #d6d4d4;
 }
-
 
 .search input:focus {
   box-shadow: none;
@@ -46,8 +53,9 @@
 }
 
 .card-footer {
-  padding: 0;
-  height: 40px;
+  background-color: transparent;
+  height: 30px;
+  color: #231F20;
 }
 
 .rating {
@@ -74,4 +82,8 @@
   height: 200px;
   width: 134px;
   background-size: cover;
+}
+
+table {
+  color: #231F20;
 }
