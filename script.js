@@ -24,8 +24,11 @@ if (arrayOfMovies === null) {
 
     movieList.append(listItem);
 
-    const smlPoster = $('<div class="smallPoster">');
-    smlPoster.css({ 'background-image': `url(${arrayOfMovies[i].poster})` });
+    // const smlPoster = $('<div class="smallPoster">');
+    // smlPoster.css({ 'background-image': `url(${arrayOfMovies[i].poster})` });
+    const smlPoster = $('<img>');
+    smlPoster.attr('class', 'smallPoster');
+    smlPoster.attr('src', `${arrayOfMovies[i].poster}`);
     bigPoster.append(smlPoster);
 
     let title = arrayOfMovies[i].title;
