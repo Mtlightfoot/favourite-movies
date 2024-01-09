@@ -89,8 +89,13 @@ function chooseMovie(movie) {
       movieList.append(listItem);
 
       // Creation of Movie Poster
-      const smlPoster = $('<div class="smallPoster">');
-      smlPoster.css({ 'background-image': `url(${data.Poster})` });
+      // const smlPoster = $('<div class="smallPoster">');
+      // smlPoster.css({ 'background-image': `url(${data.Poster})` });
+
+      // Creation of Movie Poster
+      const smlPoster = $('<img>');
+      smlPoster.attr('class', 'smallPoster');
+      smlPoster.attr('src', `${data.Poster}`);
       bigPoster.append(smlPoster);
 
       smlPoster.on('click', () => {
