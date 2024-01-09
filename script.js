@@ -4,6 +4,7 @@ const movieList = $('.movieList');
 const closeModalBtn = $('.closeModalBtn');
 const movieNotFoundModal = $('#movieNotFoundModal');
 const moreMovieDetails = $('#moreMovieDetails');
+const downloadPoster = $('.downloadPoster');
 
 if (arrayOfMovies === null) {
   arrayOfMovies = [];
@@ -27,14 +28,14 @@ if (arrayOfMovies === null) {
     smlPoster.css({ 'background-image': `url(${arrayOfMovies[i].poster})` });
     bigPoster.append(smlPoster);
 
-let title = arrayOfMovies[i].title;
-let year = arrayOfMovies[i].year;
-let plot = arrayOfMovies[i].plot;
-let genre = arrayOfMovies[i].genre;
-let director = arrayOfMovies[i].director;
-let actors = arrayOfMovies[i].actors;
-let runtime = arrayOfMovies[i].runtime;
-let boxOffice = arrayOfMovies[i].boxOffice;
+    let title = arrayOfMovies[i].title;
+    let year = arrayOfMovies[i].year;
+    let plot = arrayOfMovies[i].plot;
+    let genre = arrayOfMovies[i].genre;
+    let director = arrayOfMovies[i].director;
+    let actors = arrayOfMovies[i].actors;
+    let runtime = arrayOfMovies[i].runtime;
+    let boxOffice = arrayOfMovies[i].boxOffice;
 
     smlPoster.on('click', () => {
       $('.modalTitle').text(`${title} - ${year}`);
@@ -104,6 +105,8 @@ function chooseMovie(movie) {
       })
 
       removeSpan.on('click', () => {
+        movieIndex = arrayOfMovies.indexOf(movieForArray);
+        arrayOfMovies.splice(movieIndex, 1);
         listItem.remove();
         smlPoster.remove();
       })
