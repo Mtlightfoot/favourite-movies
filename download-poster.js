@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     let element = $(".bigPoster"); // global variable
     let getCanvas; // global variable
     let newData;
@@ -19,6 +18,4 @@ $(document).ready(function () {
             }
         });
     });
-
-
 });
