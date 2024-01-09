@@ -27,6 +27,10 @@
 
 .mainCard {
   background-color: transparent;
+  min-height: 100vh;
+  background-image: url(img/liquid-cheese-main.svg);
+  background-size: cover;
+  background-position: center;
 }
 
 /* Search bar styles */
