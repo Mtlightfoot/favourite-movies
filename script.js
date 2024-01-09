@@ -72,6 +72,7 @@ function chooseMovie(movie) {
       } else if (data.Title === "Null") {
         return
       }
+
       console.log(data)
       // Creation of list item
       const listItem = $('<li class="list-group-item d-flex justify-content-between align-items-start">');
@@ -101,7 +102,6 @@ function chooseMovie(movie) {
         $('.modalRuntime').text(data.Runtime);
         $('.modalBoxOffice').text(data.BoxOffice);
         moreMovieDetails.modal("show");
-        console.log(data.Title)
       })
 
       removeSpan.on('click', () => {
@@ -124,7 +124,6 @@ function chooseMovie(movie) {
       }
 
       arrayOfMovies.push(movieForArray);
-      console.log(arrayOfMovies)
     })
     .catch(error => {
       console.log(error)
@@ -146,6 +145,7 @@ movieInput.on("keypress", function (event) {
 })
 
 addFilm.on('click', () => {
+  console.log(arrayOfMovies)
   if (arrayOfMovies.length === 9) {
     addMovieModal.modal("show");
   } else {
