@@ -52,6 +52,9 @@ if (arrayOfMovies === null) {
     })
 
     removeSpan.on('click', () => {
+      // Needs to be fixed
+      // movieIndex = arrayOfMovies.indexOf(movieForArray);
+      // arrayOfMovies.splice(movieIndex, 1);
       listItem.remove();
       smlPoster.remove();
     })
